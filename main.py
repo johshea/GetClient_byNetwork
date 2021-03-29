@@ -18,7 +18,7 @@ org = org_response.json()
 #uncomment to test return value
 #print(org[0]["id"])
 
-#create iterable list of all devices and then create filtered categories
+#create iterable list of all networks and then create filtered categories
 net_response = requests.request("GET", f'{m_baseUrl}/organizations/{org[0]["id"]}/networks/', headers=m_headers)
 if 'json' in net_response.headers.get('Content-Type'):
     networks = net_response.json()
