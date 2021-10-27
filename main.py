@@ -53,7 +53,7 @@ def main(argv):
     API_KEY = arg_apikey
     dashboard = meraki.DashboardAPI(API_KEY, suppress_logging=True)
 
-    time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    time = datetime.datetime.now().strftime("%Y-%m-%d %H-%M-%S")
     #d = datetime.datetime.now()
     #time = d.date()
 
