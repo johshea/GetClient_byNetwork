@@ -93,18 +93,19 @@ def main(argv):
                     client_data.append(client_data_df)
 
 
-                # Create and write the CSV file
+                # Create and write the CSV file (Windows, linux, macos)
                 if len(client_data) > 0:
                     keys = client_data[0].keys()
                     filename = networks[i]['name'] + '_clients-' + str(time) + '.csv'
-                    inpath = Path.cwd() / filename
-                    print(inpath)
+                    Path("client_data").mkdir(parents=True, exist_ok=True)
+                    inpath = Path.cwd() / 'client_data' / filename
+                    #print(inpath)
                     with inpath.open(mode='w+', newline='') as output_file:
                             dict_writer = csv.DictWriter(output_file, keys)
                             dict_writer.writeheader()
                             dict_writer.writerows(client_data)
 
-                    print("Client Report For" + " " + networks[i]['name'] + " " + "Created")
+                    print("Client Report For" + " " + networks[i]['name'] + " " + "Created in /Client_data")
                 #time.sleep(2)
 
             #except:
