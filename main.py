@@ -7,7 +7,7 @@
 # #reviewing and testing any scripts you run thoroughly before use in any non-testing
 # #environment.
 
-# usage python3 main.py -k <api key> -o <specific org name> -f filetype
+# usage python3 main.py -k <api key> -o <specific org name> -f csv or json
 
 
 import meraki
