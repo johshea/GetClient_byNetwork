@@ -118,7 +118,8 @@ def main(argv):
                                       'MAC': client['mac'],
                                       'User': client['user'], 'IP': client['ip'], 'manufacturer': client['manufacturer'], 
                                       'manufacturer': client['manufacturer'], 
-                                      'OS': client['os'], 'VLAN': client['vlan'], 'Device': client['recentDevicename'] 'Device Serial': client['recentDeviceSerial']}
+                                      'OS': client['os'], 'VLAN': client['vlan'], 'Connection type': client['recentDeviceConnection'], 
+                                      'Device': client['recentDevicename'], 'Device Serial': client['recentDeviceSerial']}
 
                     client_data.append(client_data_df)
 
