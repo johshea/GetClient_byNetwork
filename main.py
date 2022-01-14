@@ -116,9 +116,9 @@ def main(argv):
                     # print(client)
                     client_data_df = {'ID': client['id'], 'Description': client['description'],
                                       'MAC': client['mac'],
-                                      'User': client['user'], 'IP': client['ip'], 'VLAN': client['vlan'],
-                                      'manufacturer': client['manufacturer'],
-                                      'OS': client['os']}
+                                      'User': client['user'], 'IP': client['ip'], 'manufacturer': client['manufacturer'], 
+                                      'manufacturer': client['manufacturer'], 
+                                      'OS': client['os'], 'VLAN': client['vlan'], 'Device': client['recentDevicename'] 'Device Serial': client['recentDeviceSerial']}
 
                     client_data.append(client_data_df)
 
