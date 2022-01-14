@@ -107,11 +107,15 @@ def main(argv):
     for i in range(0, len(networks)):
         if networks[i]['productTypes'] != ['systemsManager']:
             # print(i) # debug network response
+            try:
+                clients = dashboard.networks.getNetworkClients(networks[i]['id'], total_pages='all')
+                # print(clients) # debug clients
+                print("*******Generating Client Data Report*******")
+                # Build the Client data into a nested dictionary
 
-            clients = dashboard.networks.getNetworkClients(networks[i]['id'], total_pages='all')
-            # print(clients) # debug clients
-            print("*******Generating Client Data Report*******")
-            # Build the Client data into a nested dictionary
+            except Exception:
+                pass
+
             try:
                 client_data = []
                 # print(clients)
