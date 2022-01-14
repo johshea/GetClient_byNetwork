@@ -63,6 +63,7 @@ def main(argv):
 
     arg_apikey = None
     arg_orgname = None
+    output = None
 
 
 
