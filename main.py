@@ -6,8 +6,13 @@
 # #for any damage or data loss incurred with their use. You are responsible for
 # #reviewing and testing any scripts you run thoroughly before use in any non-testing
 # #environment.
+# A script for collecting client information by network Organization wide. Selectable output as either CSV or JSON.
+#
+# ***Required Python Modules***
+# Meraki SDK - pip install meraki
+#
+# usage python main.py -k <api key> -o <specific org name (not case sensitive)> -f csv or json
 
-# usage python3 main.py -k <api key> -o <specific org name> -f csv or json
 
 
 import meraki
@@ -79,7 +84,7 @@ def main(argv):
     #print(arg_orgname) #test point for correct orgname
     #print(arg_netname) #test print for correct network name
 
-    if arg_apikey is None or arg_orgname is None:
+    if arg_apikey is None or arg_orgname is None or arg_filetype is None:
         print('Please specify the required values!')
         sys.exit(0)
 
@@ -115,11 +120,12 @@ def main(argv):
                 for client in clients:
                     # print(client)
                     client_data_df = {'ID': client['id'], 'Description': client['description'],
-                                      'MAC': client['mac'],
+                                      'MAC': client['mac'], 'Device Type': client['deviceTypePrediction'],
                                       'User': client['user'], 'IP': client['ip'], 'manufacturer': client['manufacturer'], 
                                       'manufacturer': client['manufacturer'], 
-                                      'OS': client['os'], 'VLAN': client['vlan'], 'Connection type': client['recentDeviceConnection'], 
-                                      'Device': client['recentDevicename'], 'Device Serial': client['recentDeviceSerial']}
+                                      'OS': client['os'], 'Status': client['status'], 'VLAN': client['vlan'], 'SSID': client['ssid'],
+                                      'Connection type': client['recentDeviceConnection'],
+                                      'Device': client['recentDeviceName'], 'Device Serial': client['recentDeviceSerial']}
 
                     client_data.append(client_data_df)
 
